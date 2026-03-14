@@ -1,6 +1,6 @@
-import mongoose from 'mongoose';
-import dotenv from 'dotenv';
-import Caterer from './models/Caterer.js';
+import mongoose from "mongoose";
+import dotenv from "dotenv";
+import Caterer from "./models/Caterer.js";
 
 dotenv.config();
 
@@ -10,46 +10,39 @@ const dummyData = [
     location: "Andheri West, Mumbai",
     pricePerPlate: 450,
     cuisines: ["North Indian", "Chinese", "Continental"],
-    rating: 4.5
+    rating: 4.5,
   },
   {
     name: "Spice Route Events",
     location: "Bandra East, Mumbai",
     pricePerPlate: 850,
     cuisines: ["Mughlai", "Awadhi", "Italian"],
-    rating: 4.8
+    rating: 4.8,
   },
   {
     name: "The Green Plate",
     location: "Juhu, Mumbai",
     pricePerPlate: 350,
     cuisines: ["Gujarati", "South Indian"],
-    rating: 4.2
+    rating: 4.2,
   },
   {
     name: "Coastal Delights",
     location: "Worli, Mumbai",
     pricePerPlate: 600,
     cuisines: ["Malvani", "Goan"],
-    rating: 4.0
-  }
+    rating: 4.0,
+  },
 ];
 
 const seedDB = async () => {
   try {
-    // 1. Connect to MongoDB
     await mongoose.connect(process.env.MONGO_URI);
     console.log("Connected to MongoDB...");
-
-    // 2. Clear existing data to avoid duplicates
     await Caterer.deleteMany({});
     console.log("Old data cleared.");
-
-    // 3. Insert the dummy data
     await Caterer.insertMany(dummyData);
     console.log("Database Seeded Successfully!");
-
-    // 4. Close connection
     process.exit();
   } catch (err) {
     console.error("Error seeding database:", err);

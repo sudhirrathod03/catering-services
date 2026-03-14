@@ -13,7 +13,7 @@ app.use(express.json());
 // Routes
 app.use("/api/caterers", catererRoutes);
 
-// Database Connection
+//connectDB
 mongoose
   .connect(process.env.MONGO_URI)
   .then(() =>

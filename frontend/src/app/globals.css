@@ -1,6 +1,6 @@
 @import "tailwindcss";
 
-/* Force light mode and clean background */
+
 :root {
   background-color: white;
   color: black;

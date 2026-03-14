@@ -9,7 +9,7 @@ export default function CaterersPage() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // Note: Ensure your backend is running on port 8080 as per your fetch URL
+//fetch data from backend
     fetch('http://localhost:8080/api/caterers')
       .then((res) => res.json())
       .then((data) => {
@@ -31,7 +31,7 @@ export default function CaterersPage() {
       <div className="max-w-6xl mx-auto">
         <h1 className="text-4xl font-extrabold text-gray-900 mb-8">Find a Caterer</h1>
 
-        {/* Search and Filter Bar */}
+     {/* search bar */}
         <div className="bg-white p-4 rounded-xl shadow-sm flex flex-col md:flex-row gap-6 mb-10 items-center">
           <input 
             type="text" 
@@ -52,11 +52,10 @@ export default function CaterersPage() {
           </div>
         </div>
 
-        {/* Results Grid */}
+        {/* results grid */}
         {filteredCaterers.length > 0 ? (
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
             {filteredCaterers.map((c) => (
-              // The Link must be INSIDE the map and wrap the card
               <Link href={`/caterers/${c._id}`} key={c._id} className="block group">
                 <div className="bg-white rounded-2xl overflow-hidden shadow-md group-hover:shadow-xl transition-all duration-300 border border-gray-100 group-hover:-translate-y-1 h-full">
                   <div className="p-6">

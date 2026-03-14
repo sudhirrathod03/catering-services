@@ -1,6 +1,6 @@
 import Caterer from "../models/Caterer.js";
 
-// GET /api/caterers
+// get all caterers
 export const getAllCaterers = async (req, res) => {
   try {
     const caterers = await Caterer.find();
@@ -10,7 +10,7 @@ export const getAllCaterers = async (req, res) => {
   }
 };
 
-// GET /api/caterers/:id
+// get details of specific caterers
 export const getCatererById = async (req, res) => {
   try {
     const caterer = await Caterer.findById(req.params.id);
@@ -21,7 +21,7 @@ export const getCatererById = async (req, res) => {
   }
 };
 
-// POST /api/caterers (with basic validation)
+//post new caterers
 export const createCaterer = async (req, res) => {
   const { name, location, pricePerPlate, cuisines, rating } = req.body;
 
