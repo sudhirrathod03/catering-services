@@ -10,7 +10,7 @@ export default function CaterersPage() {
 
   useEffect(() => {
 //fetch data from backend
-    fetch('https://your-app-name.onrender.com/api/caterers')
+    fetch('https://catering-services.onrender.com/api/caterers')
       .then((res) => res.json())
       .then((data) => {
         setCaterers(data);

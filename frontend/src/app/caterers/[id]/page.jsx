@@ -8,7 +8,7 @@ export default function CatererDetails() {
   const [caterer, setCaterer] = useState(null);
 
   useEffect(() => {
-    fetch(`http://localhost:8080/api/caterers/${id}`)
+    fetch(`https://catering-services.onrender.com/api/caterers/${id}`)
       .then(res => res.json())
       .then(data => setCaterer(data))
       .catch(err => console.error(err));

@@ -8,13 +8,15 @@ dotenv.config();
 const app = express();
 
 // Configure CORS
-app.use(
-  cors({
-    origin: ["http://localhost:3000", "https://your-project-name.vercel.app"],
-    methods: ["GET", "POST", "PUT", "DELETE"],
-    credentials: true,
-  })
-);
+app.use(cors({
+  origin: [
+      "http://localhost:3000",
+      "https://catering-services-nine.vercel.app",                
+      "https://catering-services.onrender.com"   
+  ],
+  methods: ["GET", "POST", "PUT", "DELETE"],
+  credentials: true
+}));
 app.use(express.json());
 
 // Routes
