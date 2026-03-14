@@ -7,7 +7,14 @@ import catererRoutes from "./routes/catererRoutes.js";
 dotenv.config();
 const app = express();
 
-app.use(cors());
+// Configure CORS
+app.use(
+  cors({
+    origin: ["http://localhost:3000", "https://your-project-name.vercel.app"],
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    credentials: true,
+  })
+);
 app.use(express.json());
 
 // Routes
